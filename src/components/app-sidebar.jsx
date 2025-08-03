@@ -32,86 +32,38 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import Image from "next/image"
+import logo from "@/assets/images/rockmixfm-logo.png"
+import Link from "next/link"
+import { Input } from "./ui/input"
+import { BadgePlus, Disc2, History, ListMusic, Mails, Mic, Tag, TrendingUp } from "lucide-react"
 
 const data = {
   user: {
-    name: "shadcn",
+    name: "Rock Mix FM",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "/rockmix-user-avatar.png",
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "Genre",
       url: "#",
-      icon: IconDashboard,
+      icon: Tag,
     },
     {
-      title: "Lifecycle",
+      title: "Popular Tracks",
       url: "#",
-      icon: IconListDetails,
+      icon: TrendingUp,
     },
     {
-      title: "Analytics",
+      title: "New Releases",
       url: "#",
-      icon: IconChartBar,
+      icon: BadgePlus,
     },
     {
-      title: "Projects",
+      title: "Submit Music",
       url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: IconCamera,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: IconFileAi,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
+      icon: Mails,
     },
   ],
   navSecondary: [
@@ -125,29 +77,45 @@ const data = {
       url: "#",
       icon: IconHelp,
     },
-    {
-      title: "Search",
-      url: "#",
-      icon: IconSearch,
-    },
   ],
-  documents: [
-    {
-      name: "Data Library",
+  yourMusic: {
+    title: "Your Music",
+    data : [
+      {
+      name: "Songs",
       url: "#",
-      icon: IconDatabase,
+      icon: ListMusic,
     },
     {
-      name: "Reports",
+      name: "Artists",
       url: "#",
-      icon: IconReport,
+      icon: Mic,
     },
     {
-      name: "Word Assistant",
+      name: "History",
       url: "#",
-      icon: IconFileWord,
+      icon: History,
     },
-  ],
+    {
+      name: "Albums",
+      url: "#",
+      icon: Disc2,
+    },
+    ]
+  },
+  playList: {
+    title: "Playlists",
+    data : [
+      {
+      name: "Rock On",
+      url: "#",
+    },
+    {
+      name: "80s Rock",
+      url: "#",
+    }
+    ]
+  },
 }
 
 export function AppSidebar({
@@ -158,18 +126,28 @@ export function AppSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
-              </a>
-            </SidebarMenuButton>
+            <Link
+              className="flex items-center justify-center"
+              href="/">
+              <Image
+                src={logo}
+                alt="Rock Mix FM Logo"
+                width={155}
+                height={50}
+              />
+            </Link>
+          </SidebarMenuItem>
+          <SidebarMenuItem className="mt-2">
+            <div className="flex items-center justify-center">
+              <Input className="w-full lg:w-[90%]" type="search" placeholder="Search..." />
+            </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        <NavDocuments items={data.yourMusic} />
+        <NavDocuments items={data.playList} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
