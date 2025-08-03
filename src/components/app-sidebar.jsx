@@ -2,21 +2,8 @@
 
 import * as React from "react"
 import {
-  IconCamera,
-  IconChartBar,
-  IconDashboard,
-  IconDatabase,
-  IconFileAi,
-  IconFileDescription,
-  IconFileWord,
-  IconFolder,
   IconHelp,
-  IconInnerShadowTop,
-  IconListDetails,
-  IconReport,
-  IconSearch,
   IconSettings,
-  IconUsers,
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -29,7 +16,6 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Image from "next/image"
@@ -47,22 +33,22 @@ const data = {
   navMain: [
     {
       title: "Genre",
-      url: "#",
+      url: "/",
       icon: Tag,
     },
     {
       title: "Popular Tracks",
-      url: "#",
+      url: "/popular-tracks",
       icon: TrendingUp,
     },
     {
       title: "New Releases",
-      url: "#",
+      url: "/new-releases",
       icon: BadgePlus,
     },
     {
       title: "Submit Music",
-      url: "#",
+      url: "/submit-music",
       icon: Mails,
     },
   ],
@@ -83,22 +69,22 @@ const data = {
     data : [
       {
       name: "Songs",
-      url: "#",
+      url: "/library/songs",
       icon: ListMusic,
     },
     {
       name: "Artists",
-      url: "#",
+      url: "/library/artists",
       icon: Mic,
     },
     {
       name: "History",
-      url: "#",
+      url: "'/library/history",
       icon: History,
     },
     {
       name: "Albums",
-      url: "#",
+      url: "/library/albums",
       icon: Disc2,
     },
     ]
