@@ -79,7 +79,7 @@ const data = {
     },
     {
       name: "History",
-      url: "'/library/history",
+      url: "/library/history",
       icon: History,
     },
     {
