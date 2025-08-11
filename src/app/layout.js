@@ -1,18 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const Roboto_Font = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -23,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${Roboto_Font.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -40,13 +37,15 @@ export default function RootLayout({ children }) {
             <AppSidebar variant="inset" />
             <SidebarInset>
               <SiteHeader />
-              <main>
+              <main className="flex flex-col lg:flex-row lg:justify-between lg:items-baseline">
                 <div className="flex flex-1 flex-col">
                   <div className="@container/main flex flex-1 flex-col gap-2">
-                    <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+                    <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 px-4 lg:px-8">
                       {children}
                     </div>
                   </div>
+                </div>
+                <div className="min-w-[300px] border-1 border-emerald-100 dark:border-emerald-800 p-4 m-3">
                 </div>
               </main>
             </SidebarInset>
