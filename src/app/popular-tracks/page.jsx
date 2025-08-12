@@ -4,11 +4,16 @@ import TrackList from '@/components/Tracks/TrackList';
 import React from 'react';
 
 const PopularTracks = () => {
+    const tracks = [
+        {id:1},
+        {id:2},
+        {id:3},
+    ]
     return (
         <div>
             <PageHero pageTitle="Popular tracks" />
             <div className="py-12">
-                <TrackList />
+                <TrackList tracks={tracks} />
             </div>
             <PageBottom />
         </div>

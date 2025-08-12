@@ -14,7 +14,7 @@ const trackSchema = new mongoose.Schema({
     type: String
   },
   duration: {
-    type: Number, // Duration in milliseconds
+    type: Number, 
     default: 0
   },
   youtube_id: {
@@ -88,7 +88,6 @@ trackSchema.index({ album: 1 });
 trackSchema.index({ artists: 1 });
 trackSchema.index({ genres: 1 });
 trackSchema.index({ plays: -1 });
-trackSchema.index({ spotify_id: 1 });
 trackSchema.index({ created_at: -1 });
 
 // Virtual for duration in seconds
