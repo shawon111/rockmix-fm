@@ -6,7 +6,9 @@ const PageHero = ({ pageTitle }) => {
     return (
         <section>
             <div className="mb-6">
-                <PageTitle title={pageTitle} />
+                {
+                    pageTitle && <PageTitle title={pageTitle} />
+                }
             </div>
             <TopBanner />
         </section>

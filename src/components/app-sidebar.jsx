@@ -94,11 +94,11 @@ const data = {
     data : [
       {
       name: "Rock On",
-      url: "#",
+      url: "/playlists/1",
     },
     {
       name: "80s Rock",
-      url: "#",
+      url: "/playlists/2",
     }
     ]
   },
