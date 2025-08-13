@@ -123,3 +123,22 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+/* audio player */
+.rhap_container {
+  background-color: #1e2939 !important
+ }
+ .rhap_time {
+  color: #fff !important;
+ }
+
+ .rhap_progress-filled {
+  background-color: #4caf50 !important;
+ }
+ .rhap_repeat-button, .rhap_main-controls-button, .rhap_volume-button {
+  color: #fff !important;
+  transition: all .3s;
+ }
+ .rhap_repeat-button:hover, .rhap_main-controls-button:hover, .rhap_volume-button:hover{
+  color: #4caf50 !important;
+ }

@@ -108,7 +108,7 @@ export function AppSidebar({
   ...props
 }) {
   return (
-    (<Sidebar collapsible="offcanvas" {...props}>
+    (<Sidebar id="rock-sidebar" collapsible="offcanvas" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
