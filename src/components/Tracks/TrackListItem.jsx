@@ -15,7 +15,7 @@ const TrackListItem = ({ track, trackIndex }) => {
             <TableCell className="hidden sm:table-cell">
                 {trackIndex + 1}
             </TableCell>
-            <TableCell className="hidden sm:table-cell relative">
+            <TableCell className="relative">
                 <Image
                     alt="Product image"
                     className="aspect-square rounded-md object-cover"
@@ -26,7 +26,8 @@ const TrackListItem = ({ track, trackIndex }) => {
                 <PlayCircle onClick={() => playTrack("https://res.cloudinary.com/dijifnaou/video/upload/v1755097593/cinematic-hip-hop-vlog-music-349853_qjs353.mp3",
                     "Sample Track 1")} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
             </TableCell>
-            <TableCell className="font-medium text-sm">
+            <TableCell onClick={() => playTrack("https://res.cloudinary.com/dijifnaou/video/upload/v1755097593/cinematic-hip-hop-vlog-music-349853_qjs353.mp3",
+                "Sample Track 1")} className="font-medium text-sm cursor-pointer">
                 The power of love
             </TableCell>
             <TableCell className="hidden sm:table-cell text-sm">Huey Lewis</TableCell>
