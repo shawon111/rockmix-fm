@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const trackSchema = new mongoose.Schema({
   name: {
@@ -114,4 +114,4 @@ trackSchema.virtual('playlists', {
 trackSchema.set('toJSON', { virtuals: true });
 trackSchema.set('toObject', { virtuals: true });
 
-module.exports = mongoose.model('Track', trackSchema); 
+export default trackSchema; 

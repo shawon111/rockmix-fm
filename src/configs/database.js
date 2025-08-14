@@ -8,26 +8,28 @@ if (!MONGODB_URI) {
 
 let cached = global.mongoose;
 
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
+if (!cached) cached = global.mongoose = { conn: null, promise: null };
 
 export async function connectDB() {
-  if (cached.conn) {
-    return cached.conn;
-  }
+  if (cached.conn) return cached.conn;
+
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false,
-    }).then((mongoose) => {
-      return mongoose;
-    }).catch((error) => {
-      console.error("MongoDB connection error:", error);
-      throw new Error("Failed to connect to MongoDB");
-    }).finally(() => {
-      console.log("MongoDB connection established");
-    });
+    cached.promise = mongoose
+      .connect(MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        bufferCommands: false, // optional
+      })
+      .then((mongoose) => {
+        console.log("MongoDB connected successfully");
+        return mongoose;
+      })
+      .catch((err) => {
+        console.error("MongoDB connection error:", err);
+        throw err; // Keep the original error for debugging
+      });
   }
+
   cached.conn = await cached.promise;
   return cached.conn;
 }
