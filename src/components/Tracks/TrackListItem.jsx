@@ -12,7 +12,7 @@ import { convertDuration } from "@/lib/convertDuration";
 const TrackListItem = ({ track, trackIndex }) => {
     const { playTrack } = usePlayer();
     const handlePlayTrack = () => {
-        playTrack(`https://rockmixfm.com/${track.url}`, track.name)
+        playTrack(`https://rockmixfm.com/${track?.url}`, track?.name)
     }
     return (
         <TableRow>
@@ -24,7 +24,7 @@ const TrackListItem = ({ track, trackIndex }) => {
                     alt="Product image"
                     className="aspect-square rounded-md object-cover"
                     height="64"
-                    src={`https://rockmixfm.com/${track.image}`}
+                    src={`https://rockmixfm.com/${track?.image}`}
                     width="64"
                 />
                 <PlayCircle onClick={() => handlePlayTrack()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
@@ -34,7 +34,7 @@ const TrackListItem = ({ track, trackIndex }) => {
             </TableCell>
             <TableCell className="hidden sm:table-cell text-sm">
                 {
-                    track.artists.length >= 1 && track.artists[0].name
+                    track?.artists.length >= 1 && track?.artists[0].name
                 }
             </TableCell>
             <TableCell className="hidden sm:table-cell text-sm">
@@ -43,7 +43,7 @@ const TrackListItem = ({ track, trackIndex }) => {
             <TableCell>
                 <Badge className=" text-sm" variant="outline">
                     {
-                        convertDuration(track.duration)
+                        convertDuration(track?.duration)
                     }
                 </Badge>
             </TableCell>

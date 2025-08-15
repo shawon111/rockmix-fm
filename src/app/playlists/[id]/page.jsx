@@ -13,7 +13,7 @@ const SinglePlaylist = () => {
             <PlaylistHead />
             <PageHero />
             <div className="py-12">
-                <TrackList tracks={tracks} />
+                {/* <TrackList tracks={tracks} /> */}
             </div>
         </div>
     );

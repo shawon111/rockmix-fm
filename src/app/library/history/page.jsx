@@ -13,7 +13,7 @@ const History = () => {
         <div>
             <PageHero pageTitle="History" />
             <div className="py-12">
-                <TrackList tracks={tracks} />
+                {/* <TrackList tracks={tracks} /> */}
             </div>
             <PageBottom />
         </div>

@@ -13,7 +13,7 @@ const PopularTracks = () => {
         <div>
             <PageHero pageTitle="Popular tracks" />
             <div className="py-12">
-                <TrackList tracks={tracks} />
+                {/* <TrackList tracks={tracks} /> */}
             </div>
             <PageBottom />
         </div>
