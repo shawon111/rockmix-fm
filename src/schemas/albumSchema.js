@@ -66,7 +66,6 @@ const albumSchema = new mongoose.Schema({
 // Indexes
 albumSchema.index({ name: 1 });
 albumSchema.index({ owner_id: 1 });
-albumSchema.index({ spotify_id: 1 });
 albumSchema.index({ release_date: -1 });
 albumSchema.index({ plays: -1 });
 albumSchema.index({ views: -1 });

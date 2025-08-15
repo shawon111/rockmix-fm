@@ -6,10 +6,14 @@ import { Badge } from "../ui/badge";
 import placeholderTrackImg from '../../assets/images/track-img-placeholder.jpeg'
 import { usePlayer } from "@/contexts/PlayerContext";
 import { PlayCircle } from "lucide-react";
+import { convertDuration } from "@/lib/convertDuration";
 
 
 const TrackListItem = ({ track, trackIndex }) => {
     const { playTrack } = usePlayer();
+    const handlePlayTrack = () => {
+        playTrack(`https://rockmixfm.com/${track.url}`, track.name)
+    }
     return (
         <TableRow>
             <TableCell className="hidden sm:table-cell">
@@ -20,22 +24,28 @@ const TrackListItem = ({ track, trackIndex }) => {
                     alt="Product image"
                     className="aspect-square rounded-md object-cover"
                     height="64"
-                    src={placeholderTrackImg}
+                    src={`https://rockmixfm.com/${track.image}`}
                     width="64"
                 />
-                <PlayCircle onClick={() => playTrack("https://res.cloudinary.com/dijifnaou/video/upload/v1755097593/cinematic-hip-hop-vlog-music-349853_qjs353.mp3",
-                    "Sample Track 1")} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
+                <PlayCircle onClick={() => handlePlayTrack()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
             </TableCell>
-            <TableCell onClick={() => playTrack("https://res.cloudinary.com/dijifnaou/video/upload/v1755097593/cinematic-hip-hop-vlog-music-349853_qjs353.mp3",
-                "Sample Track 1")} className="font-medium text-sm cursor-pointer">
-                The power of love
+            <TableCell onClick={() => handlePlayTrack()} className="font-medium text-sm cursor-pointer">
+                {track?.name}
             </TableCell>
-            <TableCell className="hidden sm:table-cell text-sm">Huey Lewis</TableCell>
+            <TableCell className="hidden sm:table-cell text-sm">
+                {
+                    track.artists.length >= 1 && track.artists[0].name
+                }
+            </TableCell>
             <TableCell className="hidden sm:table-cell text-sm">
 
             </TableCell>
             <TableCell>
-                <Badge className=" text-sm" variant="outline">2:05</Badge>
+                <Badge className=" text-sm" variant="outline">
+                    {
+                        convertDuration(track.duration)
+                    }
+                </Badge>
             </TableCell>
         </TableRow>
     );

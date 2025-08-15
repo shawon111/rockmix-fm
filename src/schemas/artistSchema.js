@@ -65,7 +65,6 @@ const artistSchema = new mongoose.Schema({
 
 // Indexes
 artistSchema.index({ name: 1 });
-artistSchema.index({ spotify_id: 1 });
 artistSchema.index({ verified: 1 });
 artistSchema.index({ plays: -1 });
 artistSchema.index({ views: -1 });
