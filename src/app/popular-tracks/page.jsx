@@ -22,13 +22,13 @@ const PopularTracks = async () => {
             return {data: []}
         }
     }
-    const tracks = await fetchTracks();
+    // const tracks = await fetchTracks();
 
     return (
         <div>
             <PageHero pageTitle="Popular tracks" />
             <div className="py-12">
-                <TrackList tracks={tracks.data} />
+                {/* <TrackList tracks={tracks.data} /> */}
             </div>
             <PageBottom />
         </div>
