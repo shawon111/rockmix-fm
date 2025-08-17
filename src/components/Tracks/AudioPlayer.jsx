@@ -6,21 +6,21 @@ import H5AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
 export default function AudioPlayer() {
-    const { track, togglePlay } = usePlayer();
+    const { currentTrack, togglePlay } = usePlayer();
     const playerRef = useRef();
 
     // Sync context playing state with the player
     useEffect(() => {
         if (!playerRef.current) return;
 
-        if (track.playing) {
+        if (currentTrack.playing) {
             playerRef.current.audio.current.play().catch(e => console.log("Play error:", e));
         } else {
             playerRef.current.audio.current.pause();
         }
-    }, [track.playing, track.url]);
+    }, [currentTrack.playing, currentTrack.url]);
 
-    if (!track.url) return null;
+    if (!currentTrack.url) return null;
 
     return (
         <div
@@ -28,11 +28,11 @@ export default function AudioPlayer() {
         >
             <H5AudioPlayer
                 ref={playerRef}
-                src={track.url}
+                src={currentTrack.url}
                 showJumpControls={false}
-                onPlay={() => console.log("Playing:", track.title)}
-                onPause={togglePlay}
-                autoPlay={track.playing}
+                onPlay={() => console.log("Playing:", currentTrack.title)}
+                onPause={()=> togglePlay()}
+                autoPlay={currentTrack.playing}
                 className="rounded-lg bg-[#171717] text-white"
                 progressBarClassName="h-1 bg-green-500"
                 volumeControlsClassName="text-white"

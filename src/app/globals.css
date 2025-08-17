@@ -142,3 +142,25 @@ body {
  .rhap_repeat-button:hover, .rhap_main-controls-button:hover, .rhap_volume-button:hover{
   color: #4caf50 !important;
  }
+
+ /* animate paling icon */
+@keyframes equalizer-bar {
+  0%   { transform: scaleY(0.3); }
+  50%  { transform: scaleY(1); }
+  100% { transform: scaleY(0.3); }
+}
+
+.equalizer-bar {
+  display: inline-block;
+  width: 3px;              /* bar thickness */
+  height: 20px;            /* bar max height */
+  margin: 0 1px;
+  background-color: #22c55e; /* Tailwind green-500 */
+  transform-origin: bottom;
+  animation: equalizer-bar 1s infinite ease-in-out;
+}
+
+.equalizer-bar:nth-child(1) { animation-delay: 0s; }
+.equalizer-bar:nth-child(2) { animation-delay: 0.2s; }
+.equalizer-bar:nth-child(3) { animation-delay: 0.4s; }
+.equalizer-bar:nth-child(4) { animation-delay: 0.6s; }

@@ -3,16 +3,18 @@
 import Image from "next/image";
 import { TableCell, TableRow } from "../ui/table";
 import { Badge } from "../ui/badge";
-import placeholderTrackImg from '../../assets/images/track-img-placeholder.jpeg'
 import { usePlayer } from "@/contexts/PlayerContext";
-import { PlayCircle } from "lucide-react";
+import { AudioLines, Pause, PlayCircle } from "lucide-react";
 import { convertDuration } from "@/lib/convertDuration";
+import Equalizer from "../Global/Equalizer";
 
 
 const TrackListItem = ({ track, trackIndex }) => {
-    const { playTrack } = usePlayer();
+    // track states
+    const { playTrack, currentTrack, togglePlay} = usePlayer();
+    // handle plaing track
     const handlePlayTrack = () => {
-        playTrack(`https://rockmixfm.com/${track?.url}`, track?.name)
+        playTrack(`https://rockmixfm.com/${track?.url}`, track?.name, track?._id)
     }
     return (
         <TableRow>
@@ -27,7 +29,17 @@ const TrackListItem = ({ track, trackIndex }) => {
                     src={`https://rockmixfm.com/${track?.image}`}
                     width="64"
                 />
-                <PlayCircle onClick={() => handlePlayTrack()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
+                {/*dark image overlay */}
+                <div className="aspect-square rounded-md object-cover bg-[#00000080] w-[64px] absolute top-[8px] left-[8px]"></div>
+                {/* render icons by state */}
+                {
+                    (track?._id === currentTrack?.id && currentTrack.playing === true) ? 
+                    <Equalizer /> : 
+                    (track?._id === currentTrack?.id && currentTrack.playing === false) ? 
+                    <Pause onClick={()=> togglePlay()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} /> : 
+                    <PlayCircle onClick={() => handlePlayTrack()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
+                }
+
             </TableCell>
             <TableCell onClick={() => handlePlayTrack()} className="font-medium text-sm cursor-pointer">
                 {track?.name}

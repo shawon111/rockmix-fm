@@ -20,7 +20,7 @@ export function PlayerProvider({ children }) {
   };
 
   return (
-    <PlayerContext.Provider value={{ track, playTrack, togglePlay }}>
+    <PlayerContext.Provider value={{ currentTrack:track , playTrack, togglePlay }}>
       {children}
     </PlayerContext.Provider>
   );
