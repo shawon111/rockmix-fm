@@ -41,7 +41,7 @@ const TrackListItem = ({ track, trackIndex }) => {
                 }
 
             </TableCell>
-            <TableCell onClick={() => handlePlayTrack()} className="font-medium text-sm cursor-pointer">
+            <TableCell onClick={() => handlePlayTrack()} className={`${(track?._id === currentTrack?.id) && "text-green-500"} font-medium text-sm cursor-pointer`}>
                 {track?.name}
             </TableCell>
             <TableCell className="hidden sm:table-cell text-sm">
