@@ -10,9 +10,9 @@ const TrackList = ({tracks}) => {
                     <TableHead className="hidden w-[100px] sm:table-cell">
                         #
                     </TableHead>
-                    <TableHead className="w-[100px]">
+                    <TableHead className="w-[100px] tablqe-cell">
                     </TableHead>
-                    <TableHead className=" text-xs text-[#ffffffb3] font-[500]">Title</TableHead>
+                    <TableHead className="text-xs text-[#ffffffb3] font-[500]">Title</TableHead>
                     <TableHead className="hidden md:table-cell text-xs text-[#ffffffb3] font-[500]">Artist</TableHead>
                     <TableHead className="hidden md:table-cell text-xs text-[#ffffffb3] font-[500]">
                         Album

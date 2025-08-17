@@ -11,7 +11,7 @@ import Equalizer from "../Global/Equalizer";
 
 const TrackListItem = ({ track, trackIndex }) => {
     // track states
-    const { playTrack, currentTrack, togglePlay} = usePlayer();
+    const { playTrack, currentTrack, togglePlay } = usePlayer();
     // handle plaing track
     const handlePlayTrack = () => {
         playTrack(`https://rockmixfm.com/${track?.url}`, track?.name, track?._id)
@@ -21,23 +21,26 @@ const TrackListItem = ({ track, trackIndex }) => {
             <TableCell className="hidden sm:table-cell">
                 {trackIndex + 1}
             </TableCell>
-            <TableCell className="relative">
-                <Image
-                    alt="Product image"
-                    className="aspect-square rounded-md object-cover"
-                    height="64"
-                    src={`https://rockmixfm.com/${track?.image}`}
-                    width="64"
-                />
-                {/*dark image overlay */}
-                <div className="aspect-square rounded-md object-cover bg-[#00000080] w-[64px] absolute top-[8px] left-[8px]"></div>
+            <TableCell className="relative table-cell">
+                <div className="relative w-[64px] h-[64px]">
+                    <Image
+                        alt="Product image"
+                        className="aspect-square rounded-md object-cover"
+                        height="64"
+                        src={`https://rockmixfm.com/${track?.image}`}
+                        width="64"
+                    />
+                    {/*dark image overlay */}
+                    <div className="aspect-square rounded-md object-cover bg-[#00000080] w-[64px] absolute top-0 left-0"></div>
+                </div>
+
                 {/* render icons by state */}
                 {
-                    (track?._id === currentTrack?.id && currentTrack.playing === true) ? 
-                    <Equalizer /> : 
-                    (track?._id === currentTrack?.id && currentTrack.playing === false) ? 
-                    <Pause onClick={()=> togglePlay()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} /> : 
-                    <PlayCircle onClick={() => handlePlayTrack()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
+                    (track?._id === currentTrack?.id && currentTrack.playing === true) ?
+                        <Equalizer /> :
+                        (track?._id === currentTrack?.id && currentTrack.playing === false) ?
+                            <Pause onClick={() => togglePlay()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} /> :
+                            <PlayCircle onClick={() => handlePlayTrack()} className="absolute top-[30px] left-[28px] cursor-pointer text-white hover:text-green-500" size={26} />
                 }
 
             </TableCell>
