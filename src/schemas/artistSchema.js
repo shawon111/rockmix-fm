@@ -86,5 +86,3 @@ artistSchema.virtual('albums', {
 // Ensure virtuals are serialized
 artistSchema.set('toJSON', { virtuals: true });
 artistSchema.set('toObject', { virtuals: true });
-
-module.exports = mongoose.model('Artist', artistSchema); 

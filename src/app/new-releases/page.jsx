@@ -2,12 +2,27 @@ import PageBottom from '@/components/Global/PageBottom';
 import PageHero from '@/components/Global/PageHero';
 import TrackList from '@/components/Tracks/TrackList';
 import { baseURL } from '@/lib/baseURL';
+import { toast } from 'react-toastify';
 
-const NewReleases = async() => {
+const NewReleases = async () => {
+    // api url
     const apiUrl = `${baseURL}/api/tracks`;
-    const res = await fetch(apiUrl, {next: {revalidate: 3600}})
-    const tracks = await res.json();
-    console.log("check data",tracks)
+    // fetch data function
+    const fetchTracks = async () => {
+        try {
+            const res = await fetch(apiUrl, { next: { revalidate: 3600 } })
+            if (!res.ok) {
+                throw new Error(`Request failed with status ${res.status}`);
+            }
+            return await res.json();
+        } catch (err) {
+            toast.error("failed to load tracks, please try again")
+            // return empty array to prevent error in layout
+            return { data: [] }
+        }
+
+    }
+    const tracks = await fetchTracks();
     return (
         <div>
             <PageHero pageTitle="New Releases" />

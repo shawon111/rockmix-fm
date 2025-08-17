@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PlayerProvider } from "@/contexts/PlayerContext";
 import AudioPlayer from "@/components/Tracks/AudioPlayer";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const Roboto_Font = Roboto({
   variable: "--font-roboto",
@@ -28,6 +29,19 @@ export default function RootLayout({ children }) {
           defaultTheme="dark"
           disableTransitionOnChange
         >
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
           <PlayerProvider>
             <SidebarProvider
               style={
