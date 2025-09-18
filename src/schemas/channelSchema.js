@@ -87,7 +87,6 @@ const channelSchema = new mongoose.Schema({
 });
 
 // Indexes
-channelSchema.index({ name: 1 });
 channelSchema.index({ slug: 1 });
 channelSchema.index({ user_id: 1 });
 channelSchema.index({ 'config.contentType': 1 });

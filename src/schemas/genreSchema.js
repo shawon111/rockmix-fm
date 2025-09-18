@@ -34,7 +34,6 @@ const genreSchema = new mongoose.Schema({
 });
 
 // Indexes
-genreSchema.index({ name: 1 });
 genreSchema.index({ display_name: 1 });
 genreSchema.index({ popularity: -1 });
 
@@ -49,4 +48,4 @@ genreSchema.virtual('tracks', {
 genreSchema.set('toJSON', { virtuals: true });
 genreSchema.set('toObject', { virtuals: true });
 
-module.exports = mongoose.model('Genre', genreSchema); 
+module.exports = genreSchema

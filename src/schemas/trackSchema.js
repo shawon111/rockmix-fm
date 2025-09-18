@@ -82,7 +82,6 @@ const trackSchema = new mongoose.Schema({
 });
 
 // Indexes
-trackSchema.index({ name: 1 });
 trackSchema.index({ owner_id: 1 });
 trackSchema.index({ album: 1 });
 trackSchema.index({ artists: 1 });

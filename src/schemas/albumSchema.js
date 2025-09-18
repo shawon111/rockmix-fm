@@ -64,7 +64,6 @@ const albumSchema = new mongoose.Schema({
 });
 
 // Indexes
-albumSchema.index({ name: 1 });
 albumSchema.index({ owner_id: 1 });
 albumSchema.index({ release_date: -1 });
 albumSchema.index({ plays: -1 });
@@ -87,4 +86,4 @@ albumSchema.virtual('release_date_formatted').get(function() {
 albumSchema.set('toJSON', { virtuals: true });
 albumSchema.set('toObject', { virtuals: true });
 
-module.exports = mongoose.model('Album', albumSchema); 
+module.exports = albumSchema;

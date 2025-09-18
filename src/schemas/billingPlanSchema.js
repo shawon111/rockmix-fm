@@ -82,7 +82,6 @@ const billingPlanSchema = new mongoose.Schema({
 });
 
 // Indexes
-billingPlanSchema.index({ name: 1 });
 billingPlanSchema.index({ uuid: 1 });
 billingPlanSchema.index({ recommended: 1 });
 billingPlanSchema.index({ free: 1 });

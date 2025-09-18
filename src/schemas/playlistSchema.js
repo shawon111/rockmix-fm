@@ -73,7 +73,6 @@ const playlistSchema = new mongoose.Schema({
 });
 
 // Indexes
-playlistSchema.index({ name: 1 });
 playlistSchema.index({ owner_id: 1 });
 playlistSchema.index({ public: 1 });
 playlistSchema.index({ collaborative: 1 });
